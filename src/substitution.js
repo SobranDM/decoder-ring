@@ -7,22 +7,40 @@ const substitutionModule = (function () {
   function checkDuplicates(alphabet) {
     // Split alphabet into array
     const alphArray = alphabet.split("");
+    let isUnique = true;
     // For each letter in the key...
-    if ( alphArray.forEach((letter) => {
-      // ... check if that letter occurs more than once in the array...
-        if ( alphArray.filter((currLetter) => letter === currLetter).length > 1 ) false;
-      }) === false ) {
-        // ... and return false if it does...
-        return false
-        // ... or true otherwise.
-      } else { return true}
+    alphArray.forEach((letter) => {
+      // ... check if that letter occurs more than once in the array.
+        if ( alphArray.filter((currLetter) => letter == currLetter).length > 1 ) { isUnique = false }
+      })
+      return isUnique;
   }
 
   function substitution(input, alphabet, encode = true) {
     if (!alphabet || alphabet.length != 26 || !checkDuplicates(alphabet) ) {
       return false;
     } else {
-      
+      let output = "";
+      const origAlpha = "abcdefghijklmnopqrstuvwxyz";
+      if (encode) {
+        const message = input.toLowerCase();
+        for ( let i = 0; i < message.length; i++ ) {
+          if ( message[i] === " " ) {
+            output += " "
+          } else {
+            output += alphabet[origAlpha.indexOf(message[i])];
+          }
+        }
+      } else {
+        for ( let i = 0; i < input.length; i++ ) {
+          if ( input[i] === " " ) {
+            output += " "
+          } else {
+            output += origAlpha[alphabet.indexOf(input[i])];
+          }
+        }
+      }
+      return output;
     }
     
   }
