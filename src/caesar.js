@@ -12,7 +12,7 @@ const caesarModule = (function () {
     encode ? shiftMod = shift : shiftMod = 0 - shift;
     const message = input.toLowerCase();
     let charArray = [];
-    for (let i = 0; i < message.length; i++) {
+    for ( let i = 0; i < message.length; i++ ) {
       const currChar = message.charCodeAt(i);
       if (currChar > 122 || currChar < 97) {
         charArray.push(currChar);
