@@ -23,7 +23,7 @@ const polybiusModule = (function () {
     } else {
       message = input.split(' ').join('');
       if ( message.length % 2 != 0 ) { return false }
-      for ( let i = 0; i < message.length; i ++ ) {
+      for ( let i = 0; i < message.length; i++ ) {
         if ( input[i] === " " ) {
           output += " ";
         } else {

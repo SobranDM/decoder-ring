@@ -4,10 +4,22 @@
 // of the anonymous function on line 6
 
 const substitutionModule = (function () {
-  // you can add any code you want within this function scope
+  function checkDuplicates(alphabet) {
+    const alphArray = alphabet.split("");
+    if ( alphArray.forEach((letter) => {
+        if ( alphArray.filter((currLetter) => letter === currLetter).length > 1 ) false;
+      }) === false ) {
+        return false
+      } else { return true}
+  }
 
   function substitution(input, alphabet, encode = true) {
-    // your solution code here
+    if (!alphabet || alphabet.length != 26 || !checkDuplicates(alphabet) ) {
+      return false;
+    } else {
+      
+    }
+    
   }
 
   return {
