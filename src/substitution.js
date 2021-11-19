@@ -5,11 +5,16 @@
 
 const substitutionModule = (function () {
   function checkDuplicates(alphabet) {
+    // Split alphabet into array
     const alphArray = alphabet.split("");
+    // For each letter in the key...
     if ( alphArray.forEach((letter) => {
+      // ... check if that letter occurs more than once in the array...
         if ( alphArray.filter((currLetter) => letter === currLetter).length > 1 ) false;
       }) === false ) {
+        // ... and return false if it does...
         return false
+        // ... or true otherwise.
       } else { return true}
   }
 
